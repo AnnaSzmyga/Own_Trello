@@ -111,10 +111,5 @@ document.addEventListener('DOMContentLoaded', function() {
 	todoColumn.addCard(card1);
 	doingColumn.addCard(card2);
 
-	// var boxes = document.querySelectorAll('section');
-	// for (var i = 0; i < boxes.length; i++) {
-	// 	boxes[i].classList.add('column-box');
-	// };
-
 
 });
