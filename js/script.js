@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	    }
 	    return str;
 	};
+
 	function generateTemplate(name, data, basicElement) {
 	  var template = document.getElementById(name).innerHTML;
 	  var element = document.createElement(basicElement || 'div');
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	  return element;
 	};
+
 	function Column(name) {
 	  var self = this;
 	  
@@ -36,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		    self.addCard(new Card(prompt("Enter the name of the card")));
 		  }
 		});
+	  this.element.classList.add('column-box');
 	};
 
 	Column.prototype = {
@@ -46,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      this.element.parentNode.removeChild(this.element);
 	    }
 	};
+
 	function Card(description) {
 	  var self = this;
 
@@ -74,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      this.element.appendChild(column.element);
 	      initSortable(column.id);
 	    },
-	    element: document.querySelector('#board .column-container')
+	    element: document.querySelector('#board .column-container .row')
 	};
 	function initSortable(id) {
 	  var el = document.getElementById(id);
@@ -106,5 +110,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	// ADDING CARDS TO COLUMNS
 	todoColumn.addCard(card1);
 	doingColumn.addCard(card2);
+
 
 });
