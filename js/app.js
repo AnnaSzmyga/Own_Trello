@@ -2,11 +2,12 @@
 
 var baseUrl = 'https://kodilla.com/pl/bootcamp-api';
 var myHeaders = {
-  X-Client-Id: '3887',
-  X-Auth-Token: '0f94bd92b88cfe3752b3857ab68ceda1'
+  'X-Client-Id': '3887',
+  'X-Auth-Token': '0f94bd92b88cfe3752b3857ab68ceda1'
 };
+var prefix = "https://cors-anywhere.herokuapp.com/";
 
-fetch(baseUrl + '/board', { headers: myHeaders })
+fetch(prefix + baseUrl + '/board', { headers: myHeaders })
   .then(function(resp) {
     return resp.json();
   })
@@ -39,25 +40,3 @@ function generateTemplate(name, data, basicElement) {
 
   return element;
 };
-
-
-
-
-// // CREATING COLUMNS
-// var todoColumn = new Column('To do');
-// var doingColumn = new Column('Doing');
-// var doneColumn = new Column('Done');
-
-// // ADDING COLUMNS TO THE BOARD
-// board.addColumn(todoColumn);
-// board.addColumn(doingColumn);
-// board.addColumn(doneColumn);
-
-// // CREATING CARDS
-// var card1 = new Card('New task');
-// var card2 = new Card('Create kanban boards');
-
-// // ADDING CARDS TO COLUMNS
-// todoColumn.addCard(card1);
-// doingColumn.addCard(card2);
-
