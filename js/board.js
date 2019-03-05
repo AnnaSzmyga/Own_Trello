@@ -9,6 +9,7 @@ var board = {
   },
   element: document.querySelector('#board .column-container .row')
 };
+
 function initSortable(id) {
   var el = document.getElementById(id);
   var sortable = Sortable.create(el, {
@@ -16,6 +17,7 @@ function initSortable(id) {
     sort: true
   });
 }
+
 document.querySelector('#board .create-column').addEventListener('click', function() {
   var name = prompt('Enter a column name');
   var data = new FormData();

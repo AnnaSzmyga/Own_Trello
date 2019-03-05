@@ -99,8 +99,17 @@ button {
 .card {
 	padding: 5px;
 	padding-top: 20px;
+	padding-bottom: 20px;
 	box-shadow: 3px 3px 10px grey;
 	position: relative;
+
+	button.change-card-name {
+		position: absolute;
+		bottom: 5px;
+		right: 5px;
+		font-size: 10px;
+		padding: 5px 8px;
+	}
 
 	&::after {
 		content: "";

@@ -13,7 +13,7 @@ function Column(id, name) {
       }
 
       if (event.target.classList.contains('add-card')) {
-        var cardName = prompt("Enter the name of the card");
+        var cardName = prompt("Enter the description of the card");
         event.preventDefault();
 
         var data = new FormData();
@@ -33,6 +33,10 @@ function Column(id, name) {
             self.addCard(card);
           });
       }
+      if (event.target.classList.contains('change-column-name')) {
+        var newColumnName = prompt("Enter the name of the column");
+        self.changeColumnName(newColumnName);
+      }
   });
   this.element.classList.add('column-box');
 };
@@ -50,5 +54,26 @@ Column.prototype = {
         .then(function(resp) {
           self.element.parentNode.removeChild(self.element);
         });
+    },
+    changeColumnName: function(newName) {
+      var self = this;
+      var data = new FormData();
+      data.append('id', self.id);
+      data.append('name', newName);
+
+      fetch(prefix + baseUrl + '/column/' + self.id, {
+          method: 'PUT',
+          headers: myHeaders,
+          body: data,
+        })
+        .then(function(res) {
+          return res.json();
+        })
+        .then(function(resp) {
+          console.log(self.element); 
+          self.name = newName;
+          self.element.querySelector('.column-title').innerText = newName;
+        });
     }
+
 };
